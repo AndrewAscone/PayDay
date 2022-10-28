@@ -18,10 +18,12 @@ public class PayDay {
         for (TimeCard card : cards) {
             String n = card.getName();
             double w = card.getHoursWorked();
-            // ... etc for the other 2 fields
+            double r = card.getHourlyRate();
+            double d = card.getDeductionRate();
+            // ... etc. for the other 2 fields
 
             // you need to change the parameters on the method to take the input!
-            String result = payday.pay();
+            String result = payday.pay(n, w, r, d);
 
             outputReport.append(result);
         }
@@ -37,9 +39,8 @@ public class PayDay {
      *   Notice the data type of each of the four.
      * @return a string of the form "Kris 215.00 10.75 204.25”
      */
-    private String pay() {
-
-        return "";
+    public static String pay(String name, double hoursWorked, double hourlyRate, double deductionRate) {
+        return String.format("%s %.2f %.2f %.2f ", name, hoursWorked, hourlyRate, deductionRate );
     }
 
 
